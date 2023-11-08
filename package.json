@@ -1,0 +1,46 @@
+{
+  "name": "gpt-tokenizer-stat",
+  "version": "1.0.0",
+  "description": "CLI to see GPT stats based on gpt-tokenizer package",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "eslint"
+  },
+  "bin": {
+    "tokenstat": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webbrother/gpt-tokenizer-stat.git"
+  },
+  "keywords": [
+    "GPT",
+    "tokens",
+    "tokenyzer",
+    "statistic"
+  ],
+  "author": "komarov.vitaliy@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Webbrother/gpt-tokenizer-stat/issues"
+  },
+  "homepage": "https://github.com/Webbrother/gpt-tokenizer-stat#readme",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "gpt-tokenizer": "^2.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "pretty-quick": "^3.1.3"
+  },
+  "type": "module"
+}
