@@ -7,28 +7,27 @@ export function recursiveDirectoryTraversal(
   ignoredFiles,
   callback,
 ) {
-  // Проверка, является ли текущая директория игнорируемой
+  // Checking if the current directory is ignored
   if (ignoredDirectories.includes(path.basename(directoryPath))) {
     return;
   }
 
-  // Получить список элементов в текущей директории
+  // Get a list of items in the current directory
   const items = fs.readdirSync(directoryPath);
 
   items.forEach((item) => {
     const itemPath = path.join(directoryPath, item);
 
-    // Проверка, является ли текущий элемент файлом
+    // Checking if the current element is a file
     if (fs.statSync(itemPath).isFile()) {
-      // Проверка, является ли файл игнорируемым
+      // Checking if a file is ignored
       if (!ignoredFiles.includes(item)) {
-        // Определить относительный путь относительно текущей рабочей директории
+        // Define a relative path relative to the current working directory
         const relativePath = path.relative(process.cwd(), itemPath);
-        // Вызов колбек-функции для файла с относительным путем
+        // Calling a callback function for a file with a relative path
         callback(relativePath);
       }
     } else if (fs.statSync(itemPath).isDirectory()) {
-      // Рекурсивный вызов для директорий
       recursiveDirectoryTraversal(
         itemPath,
         ignoredDirectories,
@@ -39,16 +38,3 @@ export function recursiveDirectoryTraversal(
   });
 }
 
-// Пример использования функции
-// const directoryPath = ".";
-// const ignoredDirectories = ["ignoredDir1", "ignoredDir2"];
-// const ignoredFiles = ["ignoredFile1.txt", "ignoredFile2.jpg"];
-//
-// recursiveDirectoryTraversal(
-//   directoryPath,
-//   ignoredDirectories,
-//   ignoredFiles,
-//   (filePath) => {
-//     console.log(filePath); // Здесь можно выполнить нужные действия с каждым файлом
-//   },
-// );
