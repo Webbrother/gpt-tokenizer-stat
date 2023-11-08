@@ -1,6 +1,6 @@
 {
   "name": "gpt-tokenizer-stat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI to see GPT stats based on gpt-tokenizer package",
   "main": "src/index.js",
   "scripts": {
