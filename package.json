@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Webbrother/gpt-tokenizer-stat#readme",
   "dependencies": {
     "commander": "^11.1.0",
+    "console.table": "^0.10.0",
     "gpt-tokenizer": "^2.1.2"
   },
   "devDependencies": {
