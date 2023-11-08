@@ -2,6 +2,9 @@
 
 CLI to see GPT files stats based on gpt-tokenizer package
 
+### Getting started
+`npm i -g tokenstat`
+
 ### Options
 
 - `-i` `--ignore-dirs` - List of ignored directories
