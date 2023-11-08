@@ -3,7 +3,9 @@
 CLI to see GPT files stats based on gpt-tokenizer package
 
 ### Getting started
-`npm i -g tokenstat`
+- `npm i -g tokenstat`
+- `cd /to/your/dir`
+- `tokenstat`
 
 ### Options
 
