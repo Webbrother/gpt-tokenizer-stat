@@ -3,12 +3,12 @@ import path from "path";
 
 export function recursiveDirectoryTraversal(
   directoryPath,
-  ignoredDirectories,
-  ignoredFiles,
+  ignoreDirs,
+  ignoreFiles,
   callback,
 ) {
   // Checking if the current directory is ignored
-  if (ignoredDirectories.includes(path.basename(directoryPath))) {
+  if (ignoreDirs.has(path.basename(directoryPath))) {
     return;
   }
 
@@ -21,20 +21,14 @@ export function recursiveDirectoryTraversal(
     // Checking if the current element is a file
     if (fs.statSync(itemPath).isFile()) {
       // Checking if a file is ignored
-      if (!ignoredFiles.includes(item)) {
+      if (!ignoreFiles.has(item)) {
         // Define a relative path relative to the current working directory
         const relativePath = path.relative(process.cwd(), itemPath);
         // Calling a callback function for a file with a relative path
         callback(relativePath);
       }
     } else if (fs.statSync(itemPath).isDirectory()) {
-      recursiveDirectoryTraversal(
-        itemPath,
-        ignoredDirectories,
-        ignoredFiles,
-        callback,
-      );
+      recursiveDirectoryTraversal(itemPath, ignoreDirs, ignoreFiles, callback);
     }
   });
 }
-
